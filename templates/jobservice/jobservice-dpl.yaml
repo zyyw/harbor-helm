@@ -97,8 +97,8 @@ spec:
         - name: jobservice-config
           mountPath: /etc/jobservice/config.yml
           subPath: config.yml
-        - name: job-logs
-          mountPath: /var/log/jobs
+        - name: job-data
+          mountPath: /var
           subPath: {{ .Values.persistence.persistentVolumeClaim.jobservice.subPath }}
         {{- if .Values.internalTLS.enabled }}
         - name: jobservice-internal-certs
@@ -111,8 +111,8 @@ spec:
       - name: jobservice-config
         configMap:
           name: "{{ template "harbor.jobservice" . }}"
-      - name: job-logs
-        {{- if and .Values.persistence.enabled (has "file" .Values.jobservice.jobLoggers) }}
+      - name: job-data
+        {{- if .Values.persistence.enabled }}
         persistentVolumeClaim:
           claimName: {{ .Values.persistence.persistentVolumeClaim.jobservice.existingClaim | default (include "harbor.jobservice" .) }}
         {{- else }}
