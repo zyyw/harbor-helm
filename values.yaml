@@ -798,7 +798,7 @@ database:
 redis:
   # if external Redis is used, set "type" to "external"
   # and fill the connection information in "external" section
-  type: internal
+  type: external
   internal:
     # set the service account to be used, default if left empty
     serviceAccountName: ""
@@ -820,7 +820,7 @@ redis:
     # support redis, redis+sentinel
     # addr for redis: <host_redis>:<port_redis>
     # addr for redis+sentinel: <host_sentinel1>:<port_sentinel1>,<host_sentinel2>:<port_sentinel2>,<host_sentinel3>:<port_sentinel3>
-    addr: "192.168.0.2:6379"
+    addr: "10.202.250.194:6379"
     # The name of the set of Redis instances to monitor, it must be set to support redis+sentinel
     sentinelMasterSet: ""
     # The "coreDatabaseIndex" must be "0" as the library Harbor
@@ -831,7 +831,7 @@ redis:
     trivyAdapterIndex: "5"
     # username field can be an empty string and it will be authenticated against the default user
     username: ""
-    password: ""
+    password: "foobar"
     # If using existingSecret, the key must be REDIS_PASSWORD
     existingSecret: ""
   ## Additional deployment annotations
