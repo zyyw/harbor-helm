@@ -934,6 +934,6 @@ trace:
 # which help to improve the performance of high concurrent pulling manifest.
 cache:
   # default is not enabled.
-  enabled: false
+  enabled: true
   # default keep cache for one day.
   expireHours: 24
