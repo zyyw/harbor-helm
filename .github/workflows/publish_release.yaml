@@ -40,6 +40,8 @@ jobs:
           helm repo index --merge ../harbor-helm/index.yaml .
           mv ./* ../harbor-helm
           cd ../harbor-helm
+          git status
+          git diff 
           git add .
           git commit -s "feat: Upload Harbor ${{ github.event.release.tag_name }} to chart repository"
           git push origin chart-repository
