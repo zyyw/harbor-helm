@@ -28,7 +28,7 @@ jobs:
           helm push ${{ env.PACKAGE_PATH }} oci://ghcr.io/${{ github.actor }}
       - name: Upload to chart repository 
         run: |
-          echo ${{ toJson(github.event) }}
+          echo "${{ toJson(github.event) }}"
           pwd
           ls
           git config --global user.email "${{ github.event.actor.login }}@users.noreply.github.com"
